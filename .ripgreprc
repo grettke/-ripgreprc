@@ -14,21 +14,18 @@
 # Out of the box rg also knows to ignore Git's own data directory in addition
 # to Git's ignores that the user sets up. Since ~--hidden~ forces rg to search
 # *every* directory, including Git's data directory, we have to teach rg to
-# Git's data directory. Put the configuration in a file to accomodate
+# ignore Git's data directory. Add that configuration in a file to accomodate
 # further changes.
 
 --ignore-file=/Users/grant/src/ripgreprc/ignore-file.rc
 
-# Sort results by file name. This is easier when you expect already certain file
+# Sort results by file name. This is easier when you expect a certain file
 # name prefix: you scan directly to that location in the results. This disables
 # parallelism and slows it down.
 
 --sort=path
 
-# Make search results consisteep's binary file detection consistent, then you
-# can disable memory maps via the --no-mmap flag. (The cost will be a small
-# performance regression when searching very large files on some platforms.)"
-#
-# In the spirit of consistency: enable it.
+# "If you prefer to keep ripgrep's binary file detection consistent, then you can disable
+# memory map"
 
---no-mmap
+--no-mmap 
